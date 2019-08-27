@@ -12,30 +12,24 @@ Primary use:
 [ FONT ]*/
 
 @font-face {
-  font-family: Poppins-Regular;
-  src: url('../fonts/Poppins/Poppins-Regular.ttf'); 
+  font-family: Montserrat-Regular;
+  src: url('../fonts/Montserrat/Montserrat-Regular.ttf'); 
 }
 
 @font-face {
-  font-family: Poppins-Bold;
-  src: url('../fonts/Poppins/Poppins-Bold.ttf'); 
+  font-family: Montserrat-Thin;
+  src: url('../fonts/Montserrat/Montserrat-Thin.ttf'); 
 }
 
 @font-face {
-  font-family: Lato-Regular;
-  src: url('../fonts/Lato/Lato-Regular.ttf'); 
+  font-family: Montserrat-Bold;
+  src: url('../fonts/Montserrat/Montserrat-Bold.ttf'); 
 }
 
 @font-face {
-  font-family: Lato-Light;
-  src: url('../fonts/Lato/Lato-Light.ttf'); 
+  font-family: Quantico-Regular;
+  src: url('../fonts/Quantico/Quantico-Regular.ttf'); 
 }
-
-@font-face {
-  font-family: Lato-Bold;
-  src: url('../fonts/Lato/Lato-Bold.ttf'); 
-}
-
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -44,147 +38,178 @@ Primary use:
 .container {max-width: 1200px;}
 
 
-
 /*//////////////////////////////////////////////////////////////////
-[ Form ]*/
+[ RS Flip Clock ]*/
+.flip-clock-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  max-width: 100%;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.flip-clock-wrapper .flip {
+  box-shadow: none;
+  margin-bottom: 80px;
+}
+
+.flip-clock-wrapper ul {
+  position: relative;
+  float: unset;
+  margin: 3px;
+  width: 90px;
+  height: 120px;
+  font-size: 36px;
+  font-weight: unset;
+  line-height: unset;
+  border-radius: 10px;
+  background: #0d1629;
+}
+
+.flip-clock-wrapper ul li {
+  line-height: unset;
+}
+
+.flip-clock-wrapper ul li a div {
+  outline: none;
+}
+
+.flip-clock-wrapper ul li a div div.inn {
+  font-family:  Quantico-Regular;
+  color: #fff;
+  font-size: 120px;
+  font-weight: unset;
+  text-align: unset;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 200%;
+  text-shadow: 0 0px 0px #000;
+  background-color: #0d1629;
+  border-radius: 10px;
+} 
+
+.flip-clock-wrapper ul li a div .shadow {
+  border-radius: 10px;
+}
+
+.flip-clock-wrapper ul li a div.up:after {
+  display: none;
+}
 
 /*---------------------------------------------*/
-.wrap-input100 {
+.flip-clock-divider {
+  display: block;
+  float: unset;
   position: relative;
-  max-width: calc(100% - 10px);
-  width: 500px;
-  z-index: 1;
+  width: 68px;
+  height: 120px;
 }
 
-.input100 {
-  display: block;
-  width: 100%;
-  background: #fff;
-  height: 70px;
-  border-radius: 35px;
-  padding: 0 40px;
+.flip-clock-divider span {
+  display: none;
 }
 
-.focus-input100 {
-  content: '';
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
+.flip-clock-divider::before {
+  content: ":";
+  font-family: Quantico-Regular;
+  color: #fff;
+  font-size: 120px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
-  border-radius: 35px;
-  box-shadow: 0px 0px 0px 0px;
-  color: rgba(132,106,221, 0.5);
 }
 
-.input100:focus + .focus-input100 {
-  -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
-  animation: anim-shadow 0.5s ease-in-out forwards;
+.flip-clock-divider.days::before {
+  display: none;
 }
 
-@-webkit-keyframes anim-shadow {
-  to {
-    box-shadow: 0px 0px 80px 30px;
-    opacity: 0;
+.flip-clock-divider::after {
+  font-family: Montserrat-Bold;
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+
+  display: block;
+  text-align: center;
+  width: 193px;
+  position: absolute;
+  left: 100%;
+  top: 100%;
+  padding-top: 23px;
+}
+
+.flip-clock-divider.days::after {
+  content: "days";
+}
+
+.flip-clock-divider.hours::after {
+  content: "hrs";
+}
+
+.flip-clock-divider.minutes::after {
+  content: "min";
+}
+
+.flip-clock-divider.seconds::after {
+  content: "sec";
+}
+
+@media (max-width: 1200px) {
+  .flip-clock-wrapper {
+    max-width: 470px;
+    margin-right: 10px;
+  }
+
+  .flip-clock-divider.days {
+    width: 10px;
+  }
+  
+
+  .flip-clock-divider.minutes {
+    width: 10px;
+  }
+
+  .flip-clock-divider.minutes::before {
+    display: none;
   }
 }
 
-@keyframes anim-shadow {
-  to {
-    box-shadow: 0px 0px 80px 30px;
-    opacity: 0;
+@media (max-width: 576px) {
+  .flip-clock-wrapper {
+    max-width: 210px;
+    margin-right: 10px;
   }
-}
 
-
-/*------------------------------------------------------------------
-[ Alert validate ]*/
-
-.validate-input {
-  position: relative;
-}
-
-.alert-validate::before {
-  content: attr(data-validate);
-  position: absolute;
-  max-width: 70%;
-  background-color: #fff;
-  border: 1px solid #c80000;
-  border-radius: 16px;
-  padding: 5px 30px 6px 10px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 12px;
-  pointer-events: none;
-
-  font-family: Lato-Bold;
-  color: #c80000;
-  font-size: 15px;
-  line-height: 1.4;
-  text-align: left;
-
-  visibility: hidden;
-  opacity: 0;
-
-  -webkit-transition: opacity 0.4s;
-  -o-transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  transition: opacity 0.4s;
-}
-
-.alert-validate::after {
-  content: "\f06a";
-  font-family: FontAwesome;
-  display: block;
-  position: absolute;
-  color: #c80000;
-  font-size: 20px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 18px;
-}
-
-.alert-validate:hover:before {
-  visibility: visible;
-  opacity: 1;
-}
-
-@media (max-width: 992px) {
-  .alert-validate::before {
-    visibility: visible;
-    opacity: 1;
+  .flip-clock-divider {
+    width: 10px;
   }
-}
 
-/*//////////////////////////////////////////////////////////////////
-[ Simple slide100 ]*/
-.simpleslide100 {
-  display: block;
-  position: fixed;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
-.simpleslide100-item {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  .flip-clock-divider::before {
+    display: none;
+  }
 }
 
 
@@ -201,68 +226,29 @@ Primary use:
 
 /*//////////////////////////////////////////////////////////////////
 [ S-Text 0 - 15 ]*/
-
-/*---------------------------------------------*/
-.s2-txt1 {
-  font-family: Lato-Regular;
-  font-size: 12px;
-  line-height: 1;
-  color: #846add;
-  text-transform: uppercase;
-}
-
-.s2-txt2 {
-  font-family: Lato-Bold;
-  font-size: 15px;
-  line-height: 1.4;
-  color: #846add;
-}
-
-.s2-txt3 {
-  font-family: Lato-Bold;
-  font-size: 15px;
-  line-height: 1.4;
+.s1-txt1 {
+  font-family: Montserrat-Bold;
+  font-size: 14px;
   color: #fff;
+  line-height: 1;
   text-transform: uppercase;
 }
-
-
 
 /*//////////////////////////////////////////////////////////////////
 [ M-Text 16 - 25 ]*/
 
-/*---------------------------------------------*/
-.m2-txt1 {
-  font-family: Lato-Light;
-  font-size: 25px;
-  line-height: 1.2;
-  color: #fff;
-}
 
-.m2-txt2 {
-  font-family: Lato-Bold;
-  font-size: 25px;
-  line-height: 1;
-  color: #fff;
-}
 
 
 /*//////////////////////////////////////////////////////////////////
 [ L-Text >= 26 ]*/
 .l1-txt1 {
-  font-family: Poppins-Bold;
+  font-family: Montserrat-Thin;
   font-size: 50px;
+  color: #fff;
   line-height: 1.1;
-  color: #fff;
   text-transform: uppercase;
-}
-
-/*---------------------------------------------*/
-.l2-txt1 {
-  font-family: Lato-Bold;
-  font-size: 40px;
-  line-height: 1;
-  color: #fff;
+  letter-spacing: 10px;
 }
 
 
@@ -277,22 +263,28 @@ Primary use:
 }
 
 .size2 {
-  width: 155px;
-  height: 155px;
+  width: 100%;
+  height: 50px;
 }
 
 .size3 {
-  min-width: 160px;
-  height: 70px;
+  width: 36px;
+  height: 36px;
 }
+
 
 /*//////////////////////////////////////////////////////////////////
 [ Width ]*/
-
+.wsize1 {
+  width: 390px;
+  max-width: 100%;
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ Height ]*/
-
+.hsize1 {
+  min-height: 500px;
+}
 
 
 
@@ -312,8 +304,7 @@ Primary use:
 /*//////////////////////////////////////////////////////////////////
 [ Border ]*/
 .bor1 {
-  border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 50%;
+  border-radius: 10px;
 }
 
 
@@ -322,9 +313,7 @@ Primary use:
 /*==================================================================
    WHERE WHERE WHERE WHERE WHERE WHERE WHERE WHERE WHERE WHERE WHERE  
 ==================================================================*/
-.where1 {
-  margin: 0 5px 20px 5px;
-}
+
 
 
 
@@ -350,19 +339,37 @@ Primary use:
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.8);
+  background: #7579ff;
+  background: -webkit-linear-gradient(top, #b224ef, #7579ff);
+  background: -o-linear-gradient(top, #b224ef, #7579ff);
+  background: -moz-linear-gradient(top, #b224ef, #7579ff);
+  background: linear-gradient(top, #b224ef, #7579ff);
+  opacity: 0.8;
+}
+
+
+/*---------------------------------------------*/
+.wrappic1 {
+  display: block;
+  flex-grow: 1;
+}
+
+.wrappic1 img {
+  max-width: 100%;
 }
 
 /*---------------------------------------------*/
-.how-btn1 {
-  border-radius: 35px;
-  background-color: #846add;
-  padding-right: 20px;
-  padding-left: 20px;
+.how-social {
+  color: #fff;
+  font-size: 18px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  border-radius: 50%;
 }
 
-.how-btn1:hover {
-  background-color: #5d43b5;
+.how-social:hover {
+  background-color: #fff;
+  color: #0d1629;
 }
 
 
@@ -393,6 +400,8 @@ Primary use:
 /*==================================================================
   RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE
 ==================================================================*/
+/*//////////////////////////////////////////////////////////////////
+[ XXL ]*/
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -493,8 +502,12 @@ Primary use:
   .p-r-15-sm {padding-right: 15px;}
 
   .w-full-sm {width: 100%;}
-  /*---------------------------------------------*/
 
+  /*---------------------------------------------*/
+  .respon1 {
+    padding-top: 80px;
+    padding-bottom: 100px;
+  }
   
 }
 
